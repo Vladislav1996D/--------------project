@@ -1,3 +1,4 @@
+"use strict"
 window.onload = function () {
   let alphabet = [
     "а", "б", "в", "г", "д",
@@ -23,6 +24,7 @@ window.onload = function () {
   let showLives = document.getElementById("mylives");
   let getHint = document.getElementById("hint");
   let showClue = document.getElementById("clue");
+  let list = document.getElementById("li")
 
   // Создаем алфавит ul
   const buttons = function () {
@@ -54,7 +56,7 @@ window.onload = function () {
   };
 
   // Создаем элементы подчеркивания "_"
-  result = function () {
+  const result = function () {
 
     const correct = document.createElement("ul");
     let wordHolder = document.getElementById("hold");
@@ -72,7 +74,7 @@ window.onload = function () {
   };
 
   // Подсчет жизней
-  comments = function () {
+  const comments = function () {
     showLives.innerHTML = "У вас осталось " + lives + " жизней";
     if (lives < 1) {
       showLives.innerHTML = "У вас осталось 0 жизней.. Игра окончена";
@@ -85,8 +87,8 @@ window.onload = function () {
   };
   
   // OnClick Function
-  check = function () {
-    list.addEventListener('click', function () {
+  const check = function () {
+      list.addEventListener('click', function () {
       let character = this.innerHTML;
       this.setAttribute("class", "active");
       this.onclick = null;
@@ -107,7 +109,7 @@ window.onload = function () {
   };
 
   // Игра
-  play = function () {
+  const play = function () {
     categories = [
       ["динамо", "шахтёр", "ворскла", "кривбасс", "металист", "львов", "черноморец"],
       ["сало", "борщ", "вареники", "голубцы", "кулеш"],
@@ -137,7 +139,7 @@ window.onload = function () {
   })
 
   hint.addEventListener('click', function () {
-    hints = [
+    const hints = [
       [
         "Киевское...",
         "Донецкий...",
